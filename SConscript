@@ -23,6 +23,21 @@ if GetDepend(['SOC_HC32F4A0SI']):
 
     path += [cwd + '/Device/HDSC/hc32f4a0/Include']
 
+elif GetDepend(['SOC_HC32F4A2SI']):
+
+    src += Split('''
+    Device/HDSC/hc32f4a2/Source/system_hc32f4a2.c
+    ''')
+
+    if rtconfig.PLATFORM in ['gcc']:
+        src += ['Device/HDSC/hc32f4a2/Source/GCC/startup_hc32f4a2.S']
+    elif rtconfig.PLATFORM in ['armcc', 'armclang']:
+        src += ['Device/HDSC/hc32f4a2/Source/ARM/startup_hc32f4a2.s']
+    elif rtconfig.PLATFORM in ['iccarm']:
+        src += ['Device/HDSC/hc32f4a2/Source/IAR/startup_hc32f4a2.s']
+
+    path += [cwd + '/Device/HDSC/hc32f4a2/Include']
+
 elif GetDepend(['SOC_HC32F448MC']):
 
     src += Split('''
