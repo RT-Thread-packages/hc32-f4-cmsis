@@ -82,6 +82,20 @@ elif GetDepend(['SOC_HC32F472PE']):
         src += ['Device/HDSC/hc32f472/Source/IAR/startup_hc32f472.s']
 
     path += [cwd + '/Device/HDSC/hc32f472/Include']
+elif GetDepend(['SOC_HC32F467RG']):
+
+    src += Split('''
+    Device/HDSC/hc32f467/Source/system_hc32f467.c
+    ''')
+
+    if rtconfig.PLATFORM in ['gcc']:
+        src += ['Device/HDSC/hc32f467/Source/GCC/startup_hc32f467.S']
+    elif rtconfig.PLATFORM in ['armcc', 'armclang']:
+        src += ['Device/HDSC/hc32f467/Source/ARM/startup_hc32f467.s']
+    elif rtconfig.PLATFORM in ['iccarm']:
+        src += ['Device/HDSC/hc32f467/Source/IAR/startup_hc32f467.s']
+
+    path += [cwd + '/Device/HDSC/hc32f467/Include']
 
 CPPDEFINES = ['USE_DDL_DRIVER']
 
