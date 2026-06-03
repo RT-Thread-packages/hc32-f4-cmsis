@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  <pass>
+    <loader>./FlashHC32F467xG.flash</loader>
+    <range>CODE 0x0 0xFFFFF</range>
+  </pass>
+  <pass>
+    <loader>./FlashHC32F467_otp.flash</loader>
+    <range>CODE 0x03000000 0x030017FF</range>
+  </pass>
+</flash_board>
+
+
